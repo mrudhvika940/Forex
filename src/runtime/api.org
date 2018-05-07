@@ -1,0 +1,103 @@
+#+TITLE: Forex
+#+AUTHOR: Mrudhvika
+#+DATE: [2018-05-07 Mon]
+#+SETUPFILE: ../../org-templates/level-2.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+  :PROPERTIES:
+  :CUSTOM_ID: introduction
+  :END: 
+  This "literate mode" displays 
+
+
+* WebApp
+** Structure of html
+#+NAME: main-html
+#+BEGIN_SRC html 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="../static/css/tab.css" />
+</head>
+<body>
+<div class = "main">
+<div id='dashboard' class="bottom">
+  <div id="fillgaugeContainer">
+  <svg id="fillgauge1" width="100%" height="240"></svg>
+</div>
+</div>
+</div>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../static/js/chart_display.js"></script>
+</body>
+</html>
+#+END_SRC
+
+** Liquid Fill Gauge Default Settings
+   Following function contain liquid fill gauge default settings
+#+NAME: liquidfillgauge-defaultsettings
+#+BEGIN_SRC html 
+
+
+#+END_SRC
+
+** Load Liquid Fill Gauge
+   Following function calls when liquid fill gauge function gets load
+#+NAME: load-liquidfillgauge
+#+BEGIN_SRC html 
+
+#+END_SRC
+
+** Dashboard
+   It contains template of bar graph and two pie charts showing every detail of feedback counts filter by year, lab, experiments, generic.
+#+NAME: main-dashboard
+#+BEGIN_SRC html
+
+#+END_SRC
+
+** Create legend
+   It create legends in the form of the tables which shows feedback counts in numbers as well as in percentage for both the pie charts.
+#+NAME: create-legend
+#+BEGIN_SRC html
+
+#+END_SRC
+
+** Dashboard function
+   It control function of bar graph and two pie charts so that it works dynamically.
+#+NAME: dashboard-function
+#+BEGIN_SRC html
+
+
+#+END_SRC
+
+** CSS
+   It contains css for for complete service which makes the service responsive.
+#+NAME: style-sheets
+#+BEGIN_SRC html 
+#+END_SRC
+
+* Tangle 
+** sources
+*** Javascript
+#+BEGIN_SRC javascript :tangle static/js/chart_display.js :eval no :noweb yes 
+<<liquidfillgauge-defaultsettings>>
+<<load-liquidfillgauge>>
+<<main-dashboard>>
+<<create-legend>>
+<<dashboard-function>>
+
+#+END_SRC
+*** HTML
+#+BEGIN_SRC html :tangle templates/index.html :eval no :noweb yes
+<<main-html>>
+#+END_SRC
+
+*** CSS
+#+BEGIN_SRC css :tangle static/css/tab.css :eval no :noweb yes 
+<<style-sheets>>
+#+END_SRC
